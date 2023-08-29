@@ -13,7 +13,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-#elseif os(macOS)
+#elseif os(macOS) || os(visionOS)
 @main
 struct App: SwiftUI.App {
     var body: some Scene {
@@ -21,5 +21,11 @@ struct App: SwiftUI.App {
             AppView()
         }
     }
+}
+#endif
+
+#if swift(>=5.9)
+#Preview {
+    AppView()
 }
 #endif

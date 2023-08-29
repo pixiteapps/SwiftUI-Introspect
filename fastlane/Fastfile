@@ -15,6 +15,9 @@ devices = {
         16 => ["Apple TV (16.4)"],
         17 => ["Apple TV (17.0)"],
     },
+    "visionos" => {
+        1 => ["Apple Vision Pro (1.0)"],
+    },
 }
 
 lane :build do |options|
@@ -92,7 +95,6 @@ lane :test do |options|
         when "SwiftUIIntrospectTests"
             is_legacy_sdk ? "LegacySwiftUIIntrospectTests" : "SwiftUIIntrospectTests"
         when "SwiftUIIntrospectUITests"
-            next if is_legacy_sdk
             "SwiftUIIntrospectUITests"
         else
             raise "Unsupported scheme: #{scheme}"
